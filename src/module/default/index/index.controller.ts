@@ -6,4 +6,9 @@ export class IndexController {
   index() {
     return 'front fist page';
   }
+
+  @Get('news')
+  getNews() {
+    return 'front news page';
+  }
 }
