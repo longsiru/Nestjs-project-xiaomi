@@ -25,6 +25,8 @@
 //20.局部刷新，用到iframe id="rightMain"，然后在a tag 里面写target="rightMain"
 //21.计算窗口高度，js
 //21. login生成验证码，用svg captcha  --npm install --save svg-captcha,安装完成之后引入 tools
+//22. 对登陆进行验证。没有login就不能进入。利用中间件来做，创建中间件。nest g mi middleware/adminauth
+//23. 需要在跟模块配置中间件。需要继承nestmodule，实现config方法
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
