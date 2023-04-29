@@ -4,6 +4,12 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 export class AdminauthMiddleware implements NestMiddleware {
   use(req: any, res: any, next: () => void) {
     console.log('middleware');
-    next();
+    //1.获取session里面保存的用户信息。
+    var userinfo = req.session.userinfo;
+    if (userinfo) {
+      next();
+    } else {
+      req.redirect('/admin/login');
+    }
   }
 }
