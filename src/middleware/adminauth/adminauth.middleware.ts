@@ -8,7 +8,7 @@ export class AdminauthMiddleware implements NestMiddleware {
     var pathname = req.originalUrl;
     //1.获取session里面保存的用户信息。
     //2.避免进入死循环，要在if文里面排除掉adminlogin画面。所以需要获取URL传过来的值。如果是login就不需要进行权限判断。
-    //3.拿到路径之后要进行排除。
+    //3.拿到路径之后要进行排除。if if p0-
     var userinfo = req.session.userinfo;
     if (userinfo && userinfo.username) {
       next();
@@ -20,9 +20,8 @@ export class AdminauthMiddleware implements NestMiddleware {
       ) {
         next();
       } else {
-        req.redirect('/admin/login');
+        res.redirect('/admin/login');
       }
     }
-    //next();
   }
 }
