@@ -27,6 +27,7 @@
 //21. login生成验证码，用svg captcha  --npm install --save svg-captcha,安装完成之后引入 tools
 //22. 对登陆进行验证。没有login就不能进入。利用中间件来做，创建中间件。nest g mi middleware/adminauth
 //23. 需要在跟模块配置中间件。需要继承nestmodule，实现config方法
+//24. 如何判断当前用户有没有登陆，要看用户信息有没有保存在session
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
