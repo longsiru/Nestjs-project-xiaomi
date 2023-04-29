@@ -13,7 +13,15 @@ export class AdminauthMiddleware implements NestMiddleware {
     if (userinfo && userinfo.username) {
       next();
     } else {
-      req.redirect('/admin/login');
+      if (
+        pathname == '/admin/login' ||
+        pathname == '/admin/login/code' ||
+        pathname == '/admin/login/doLogin'
+      ) {
+        next();
+      } else {
+        req.redirect('/admin/login');
+      }
     }
     //next();
   }
