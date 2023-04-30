@@ -13,6 +13,7 @@ export class AdminauthMiddleware implements NestMiddleware {
     if (userinfo && userinfo.username) {
       next();
     } else {
+      //排除不需要做权限判断的页面。
       if (
         pathname == '/admin/login' ||
         pathname == '/admin/login/code' ||
