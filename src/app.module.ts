@@ -11,7 +11,7 @@ import { MongooseModule } from '@nestjs/mongoose';
     AdminModule,
     DefaultModule,
     ApiModule,
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/koa', {
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/nestxiaomi', {
       useNewUrlParser: true,
     }), //1.配置数据库连接//2.去要操作的controller所属的module配置数据库模型。
   ],
