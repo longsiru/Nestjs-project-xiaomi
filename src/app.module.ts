@@ -6,6 +6,7 @@ import { ApiModule } from './module/api/api.module';
 import { AdminauthMiddleware } from './middleware/adminauth/adminauth.middleware';
 //connect db
 import { MongooseModule } from '@nestjs/mongoose';
+import { AdminService } from './service/admin/admin.service';
 @Module({
   imports: [
     AdminModule,

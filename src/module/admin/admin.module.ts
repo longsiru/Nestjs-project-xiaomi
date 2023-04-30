@@ -6,15 +6,15 @@ import { ToolsService } from '../../service/tools/tools.service';
 
 import { MongooseModule } from '@nestjs/mongoose';
 import { AdminSchema } from '../../schema/admin.schema';
-//import {AdminService} from '../../service/admin/admin.service';
+import { AdminService } from '../../service/admin/admin.service';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: 'Admin', schema: AdminSchema, collection: 'admin' },
-    ]),
+    ]), //这里使用【】数组代表可以容纳多个schema
   ],
   controllers: [MainController, LoginController, ManagerController],
-  providers: [ToolsService],
+  providers: [ToolsService, AdminService],
 })
 export class AdminModule {}

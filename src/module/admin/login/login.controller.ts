@@ -1,13 +1,20 @@
 import { Controller, Get, Render, Request, Response } from '@nestjs/common';
 import { ToolsService } from '../../../service/tools/tools.service';
+import { AdminService } from '../../../service/admin/admin.service';
 
 @Controller('admin/login')
 export class LoginController {
-  constructor(private toolsService: ToolsService) {}
+  //获取service的实例
+  //这样既可以操作admin表了
+  constructor(
+    private toolsService: ToolsService,
+    private adminService: AdminService,
+  ) {}
 
   @Get()
   @Render('admin/login')
-  index() {
+  async index() {
+    //console.log(await this.adminService.findAll());
     return {}; //返回对象。
   }
 
