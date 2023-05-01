@@ -6,3 +6,9 @@
 //mongorestore --host 127.0.0.1 --port 27017 -d nestxiaomi -c role documents/mongodb/nestxiaomi/role.bson
 //5.定义schema--AdminSchema
 //6.在控制器对应的 Module 中配置 Model
+//7.在服务service里面使用 InjectModel 获取数据库 Model 实现操作数据库  nest g s service/admin  在app.module里面去掉adminservice
+//8.在admin module引入adminservice
+//9.在对应的控制器里面使用service，在login使用,//console.log(await this.adminService.findAll());
+//10.实现登陆功能
+//11.login.ejs --form action="/admin/login/doLogin"
+//12.login.controller @post
