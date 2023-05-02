@@ -47,8 +47,12 @@ export class LoginController {
       var username: string = body.username;
       var password: string = body.password;
       if (username == '' || password.length < 6) {
-        console.log('username or password is wrong');
-        res.redirect('/admin/main');
+        // console.log('username or password is wrong');
+        // res.redirect('/admin/main');
+        await res.render('admin/public/error', {
+          message: 'username or password is wrong',
+          redirect: '/admin/login',
+        });
       } else {
         console.log(req.session.code, code);
         if (code.toUpperCase() == req.session.code.toUpperCase()) {
@@ -60,14 +64,24 @@ export class LoginController {
           if (userResult.length > 0) {
             console.log('successfully');
             req.session.userinfo = userResult[0];
-            res.redirect('/admin/main');
+            //res.redirect('/admin/main');
+            await res.render('admin/public/success', {
+              redirectUrl: '/admin/main',
+            });
           } else {
-            console.log('username or passwor is wrong');
-            res.redirect('/admin/login');
+            await res.render('admin/public/error', {
+              message: 'username or password is wrong',
+              redirectUrl: '/admin/login',
+            });
           }
         } else {
-          console.log(' code is wrong');
-          res.redirect('/admin/login');
+          // console.log(' code is wrong');
+          // res.redirect('/admin/login');
+
+          await res.render('admin/public/error', {
+            message: 'code is wrong',
+            redirectUrl: '/admin/login',
+          });
         }
       }
     } catch (error) {
