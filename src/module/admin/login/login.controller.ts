@@ -137,4 +137,11 @@ export class LoginController {
 
 
      */
+
+  @Get('loginOut')
+  loginOut(@Request() req, @Response() res) {
+    req.session.userinfo = null;
+
+    res.redirect('/admin/login');
+  }
 }
