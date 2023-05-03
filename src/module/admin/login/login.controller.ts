@@ -71,19 +71,26 @@ export class LoginController {
             req.session.userinfo = userResult[0];
             //res.redirect('/admin/main');
           } else {
-            await res.render('admin/public/error', {
-              message: 'username or password is wrong',
-              redirectUrl: '/admin/login',
-            });
+            this.toolsService.error(
+              res,
+              'username or password is wrong',
+              '/admin/login',
+            );
+            // await res.render('admin/public/error', {
+            //   message: 'username or password is wrong',
+            //   redirectUrl: '/admin/login',
+            // });
           }
         } else {
           // console.log(' code is wrong');
           // res.redirect('/admin/login');
 
-          await res.render('admin/public/error', {
-            message: 'code is wrong',
-            redirectUrl: '/admin/login',
-          });
+          // await res.render('admin/public/error', {
+          //   message: 'code is wrong',
+          //   redirectUrl: '/admin/login',
+          // });
+
+          this.toolsService.error(res, 'code is wrong', '/admin/login');
         }
       }
     } catch (error) {
