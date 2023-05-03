@@ -70,6 +70,7 @@ export class LoginController {
             console.log('successfully');
             req.session.userinfo = userResult[0];
             //res.redirect('/admin/main');
+            this.toolsService.success(res, '/admin/main');
           } else {
             this.toolsService.error(
               res,
