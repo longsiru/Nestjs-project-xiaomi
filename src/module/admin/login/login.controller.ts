@@ -49,10 +49,15 @@ export class LoginController {
       if (username == '' || password.length < 6) {
         // console.log('username or password is wrong');
         // res.redirect('/admin/main');
-        await res.render('admin/public/error', {
-          message: 'username or password is wrong',
-          redirect: '/admin/login',
-        });
+        this.toolsService.error(
+          res,
+          'username or password is wrong',
+          '/admin/login',
+        );
+        // await res.render('admin/public/error', {
+        //   message: 'username or password is wrong',
+        //   redirect: '/admin/login',
+        // }); 封装在tools service里面
       } else {
         console.log(req.session.code, code);
         if (code.toUpperCase() == req.session.code.toUpperCase()) {
@@ -65,9 +70,6 @@ export class LoginController {
             console.log('successfully');
             req.session.userinfo = userResult[0];
             //res.redirect('/admin/main');
-            await res.render('admin/public/success', {
-              redirectUrl: '/admin/main',
-            });
           } else {
             await res.render('admin/public/error', {
               message: 'username or password is wrong',
