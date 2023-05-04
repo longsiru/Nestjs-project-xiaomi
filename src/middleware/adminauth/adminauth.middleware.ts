@@ -11,6 +11,8 @@ export class AdminauthMiddleware implements NestMiddleware {
     //3.拿到路径之后要进行排除。if if p0-
     var userinfo = req.session.userinfo;
     if (userinfo && userinfo.username) {
+      //设置全局变量。登录成功进行设置。
+      res.locals.userinfo = userinfo;
       next();
     } else {
       //排除不需要做权限判断的页面。
@@ -19,7 +21,6 @@ export class AdminauthMiddleware implements NestMiddleware {
         pathname == '/admin/login/code' ||
         pathname == '/admin/login/doLogin'
       ) {
-        //设置全局变量。
         next();
       } else {
         res.redirect('/admin/login');
