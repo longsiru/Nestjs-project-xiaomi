@@ -19,6 +19,7 @@ export class AdminauthMiddleware implements NestMiddleware {
         pathname == '/admin/login/code' ||
         pathname == '/admin/login/doLogin'
       ) {
+        //设置全局变量。
         next();
       } else {
         res.redirect('/admin/login');
