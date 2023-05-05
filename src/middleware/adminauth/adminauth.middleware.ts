@@ -1,5 +1,6 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
-
+//这里面也有url的设置所以也引入config
+import { Config } from '../../config/config';
 @Injectable()
 export class AdminauthMiddleware implements NestMiddleware {
   use(req: any, res: any, next: () => void) {
@@ -17,13 +18,13 @@ export class AdminauthMiddleware implements NestMiddleware {
     } else {
       //排除不需要做权限判断的页面。
       if (
-        pathname == '/admin/login' ||
-        pathname == '/admin/login/code' ||
-        pathname == '/admin/login/doLogin'
+        pathname == `/${Config.adminPath}/login` ||
+        pathname == `/${Config.adminPath}/login/code` ||
+        pathname == `/${Config.adminPath}/login/doLogin`
       ) {
         next();
       } else {
-        res.redirect('/admin/login');
+        res.redirect(`/${Config.adminPath}/login`);
       }
     }
   }
