@@ -54,7 +54,7 @@ export class LoginController {
         this.toolsService.error(
           res,
           'username or password is wrong',
-          '/admin/login',
+          `/${Config.adminPath}/login`,
         );
         // await res.render('admin/public/error', {
         //   message: 'username or password is wrong',
@@ -72,12 +72,12 @@ export class LoginController {
             console.log('successfully');
             req.session.userinfo = userResult[0];
             //res.redirect('/admin/main');
-            this.toolsService.success(res, '/admin/main');
+            this.toolsService.success(res, `/${Config.adminPath}/main`);
           } else {
             this.toolsService.error(
               res,
               'username or password is wrong',
-              '/admin/login',
+              `/${Config.adminPath}/login`,
             );
             // await res.render('admin/public/error', {
             //   message: 'username or password is wrong',
@@ -93,12 +93,16 @@ export class LoginController {
           //   redirectUrl: '/admin/login',
           // });
 
-          this.toolsService.error(res, 'code is wrong', '/admin/login');
+          this.toolsService.error(
+            res,
+            'code is wrong',
+            `/${Config.adminPath}/login`,
+          );
         }
       }
     } catch (error) {
       console.log(error);
-      res.redirect('/admin/login');
+      res.redirect(`/${Config.adminPath}/login`);
     }
   }
 
@@ -144,6 +148,6 @@ export class LoginController {
   loginOut(@Request() req, @Response() res) {
     req.session.userinfo = null;
 
-    res.redirect('/admin/login');
+    res.redirect(`/${Config.adminPath}/login`);
   }
 }
