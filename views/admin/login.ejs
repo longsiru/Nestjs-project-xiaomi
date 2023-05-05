@@ -8,7 +8,11 @@
   <body>
     <div class="container">
       <div id="login">
-        <form action="/admin/login/doLogin" method="post" id="myform">
+        <form
+          action="/<%=config.adminPath%>/login/doLogin"
+          method="post"
+          id="myform"
+        >
           <div class="l_title">XIAOMI mall backstage management system</div>
           <dl>
             <dd>
@@ -31,9 +35,9 @@
               Verification Code:<input id="verify" type="text" name="code" />
               <img
                 id="verify_img"
-                src="/admin/login/code"
+                src="/<%=config.adminPath%>/login/code"
                 title="看不清？点击刷新"
-                onclick="javascript:this.src='/admin/login/code?t='+Math.random()"
+                onclick="javascript:this.src='/<%=config.adminPath%>/login/code?t='+Math.random()"
               />
             </dd>
             <dd>
