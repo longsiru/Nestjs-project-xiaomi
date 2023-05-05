@@ -12,7 +12,8 @@ import { ToolsService } from '../../../service/tools/tools.service';
 import { AdminService } from '../../../service/admin/admin.service';
 //引入config
 import { Config } from 'src/config/config';
-@Controller('admin/login')
+//@Controller('admin/login')
+@Controller(`${Config.adminPath}admin/login`) //所有的控制器都要这么配置。
 export class LoginController {
   //获取service的实例
   //这样既可以操作admin表了
