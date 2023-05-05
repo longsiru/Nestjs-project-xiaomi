@@ -10,7 +10,8 @@ import {
 } from '@nestjs/common';
 import { ToolsService } from '../../../service/tools/tools.service';
 import { AdminService } from '../../../service/admin/admin.service';
-
+//引入config
+import { Config } from 'src/config/config';
 @Controller('admin/login')
 export class LoginController {
   //获取service的实例
