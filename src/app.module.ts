@@ -9,6 +9,7 @@ import { InitMiddleware } from './middleware/init/init.middleware';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AdminService } from './service/admin/admin.service';
 //这里面也有url的设置所以也引入config
+//这里面也有url的设置所以也引入config
 import { Config } from './config/config';
 @Module({
   imports: [
