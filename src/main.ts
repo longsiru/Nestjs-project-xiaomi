@@ -87,27 +87,3 @@ bootstrap();
 //在config目录下面建立一个config.ts，新建一个confin的类，定义静态的属性。剋通过config。来获取里面的变量。然后配置动态的后台地址。还要配置全局的模版变量，在模版里面把对应的admin path来配置一下。
 //在中间里面配置全局的url
 //在nestjs里面扩展模版方法。在 extend 目录里面新建 helper.js，在模版里面扩展一个方法来处理对内业务逻辑。比如输出一个日期的时候可以输出一个格式化日期，也就是在<%=%>里面可以调用方法。
-//30.user login
-//1.把输入表格的数据传输到后台。传输到后台之后首先验证验证码是否输入正确，如果验证码正确，
-//2.然后获取用户名和密码，然后再去数据库查询是否有匹配的用户名和密码。如果匹配就登录成功。
-//3.用到mongodb。需要安装nestjs/mongoose以及mongoose模块。npm install --save @nestjs/mongoose mongoose
-//4.配置数据库连接。在app.module中配置数据库连接。您必须在终端/命令提示符中运行monogorestore，而不是在mongo控制台中。
-//mongorestore --host 127.0.0.1 --port 27017 -d nestxiaomi -c role documents/mongodb/nestxiaomi/role.bson
-//5.定义schema--AdminSchema
-//6.在控制器对应的 Module 中配置 Model
-//7.在服务service里面使用 InjectModel 获取数据库 Model 实现操作数据库  nest g s service/admin  在app.module里面去掉adminservice
-//8.在admin module引入adminservice
-//9.在对应的控制器里面使用service，在login使用,//console.log(await this.adminService.findAll());
-//10.实现登陆功能
-//11.login.ejs --form action="/admin/login/doLogin"
-//12.login.controller @post
-
-//32.nestjs 实现登陆，退出登录功能，配置公共的成功，失败页面。
-
-//33.nestjs配置模版全局变量，配置可修改的后台地址，扩展模版方法。
-//全局设置完成之后就可以在所有的模版里面使用了。在中间件里面设置全局变量。res.local.userinfo = userinfo
-//全局设置完成之后就可以在所有的模版里面使用了。在中间件里面设置全局变量。res.local.userinfo = userinfo
-//配置可修改的后台地址。现在我们的地址是admin/login别人可能会猜到，所以我们要配置我们自己的url，需要把路由配置成动态的路由。把admin变成一个变量，让我们可以去修改他。
-//在config目录下面建立一个config.ts，新建一个confin的类，定义静态的属性。剋通过config。来获取里面的变量。然后配置动态的后台地址。还要配置全局的模版变量，在模版里面把对应的admin path来配置一下。
-//在中间里面配置全局的url
-//在nestjs里面扩展模版方法。在 extend 目录里面新建 helper.js，在模版里面扩展一个方法来处理对内业务逻辑。比如输出一个日期的时候可以输出一个格式化日期，也就是在<%=%>里面可以调用方法。
