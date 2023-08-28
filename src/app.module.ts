@@ -29,6 +29,6 @@ export class AppModule implements NestModule {
       .apply(AdminauthMiddleware)
       .forRoutes(`${Config.adminPath}/*`)
       .apply(InitMiddleware)
-      .forRoutes('*'); //*应用于全部。所有的路由都要经过init中间件，这样的话config就有值了。admin就可以写成<%=config.adminPath%>了
+      .forRoutes('*'); //*应用于全部。//所有的路由都要经过init中间件，这样的话config就有值了。admin就可以写成<%=config.adminPath%>了
   }
 }
